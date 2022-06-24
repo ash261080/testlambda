@@ -1,16 +1,10 @@
 service: helloworld-app
 
-custom:
-  secrets: ${file(secrets.json)}
-
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs14.19.3
   stage: production
   region: us-east-1
-  environment:
-    NODE_ENV: ${self:custom.secrets.NODE_ENV}
-    # reference the NODE_ENV from the secrets.json file
 
   functions:
     app:
